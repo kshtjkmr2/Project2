@@ -1,0 +1,71 @@
+
+<div class="col-sm-9">
+	<form class="form-inline">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Recruiter can post there job details here</h3>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="">Enter Job Title</label><br> <input type="text"
+						ng-model="job.jobTitle" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="">Enter Job Description</label><br>
+					<textarea rows="4" cols="55" ng-model="job.jobDescription"
+						class="form-control"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="">Enter Skill Required</label><br> <input
+						type="text" ng-model="job.skillRequired" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Enter Year of Experience</label><br> 
+					<input type="text" ng-model="job.yearOfExp" class="form-control">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Enter Salary</label><br> <input type="text"
+						ng-model="job.salary" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Enter Company Name</label><br> <input
+						type="text" ng-model="job.companyName" class="form-control">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Enter Job Location</label><br> <input
+						type="text" ng-model="job.location" class="form-control">
+				</div>
+			</div>
+		</div>
+		<br> <br>
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-success " type="submit" ng-click="saveJob()">Submit</button>
+			</div>
+
+		</div>
+	</form>
+</div>

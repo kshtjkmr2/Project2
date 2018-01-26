@@ -1,0 +1,37 @@
+<div class="row">
+	<div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div>
+					<strong>---------------------{{blogPost.blogTitle}}---------------------</strong>
+				</div>
+				<span><strong>Posted By:</strong>{{blogPost.postedBy.username}}</span>
+				<span><strong>Posted On:</strong>{{blogPost.postedOn |
+					date:dd-MM-YYYY}}</span>
+			</div>
+			<div class="panel-body" style=" background-color:#D1D1D1;">{{blogPost.description}}</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<form>
+		<textarea rows="2" cols="90" ng-model="blogComment.body" style=" background-color:#D1D1D1;"></textarea>
+		<br>
+		<button ng-click="addComment()" value="Post Comment"
+			class="btn btn-success">Comment</button>
+			<a href="#/getallblogs" class="btn btn-success">Back to blog</a>
+	</form>
+<br>
+<div class="row">
+	<a href="" ng-click="getComments()"></a>
+	<ol>
+	<li ng-repeat="blogComment in blogComments" style="list-style : none">
+<div>
+<span>{{blogComment.body}}</span><br>
+<span><strong>Commented By:</strong>{{blogComment.commentedBy.username}}</span>
+<span><strong>Commented On:</strong>{{blogComment.commentedOn | date : 'MM/dd/yyyy'}}</span>
+</div>
+</li>
+</ol>
+</div>
+</div>

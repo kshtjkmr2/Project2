@@ -1,0 +1,33 @@
+<div class="col-sm-9">
+	<form class="form-inline">
+	<div class="row">
+			<div class="col-sm-12">
+				<h3>User can post blogs here</h3>
+			</div>
+		</div>
+		<hr>
+	<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="">Enter Blog Title</label><br> <input type="text"
+						ng-model="blogPost.blogTitle" class="form-control">
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label for="">Enter Description</label><br> 
+					<textarea rows="4" cols="55" ng-model="blogPost.description"
+				class="form-control" ></textarea>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-success " type="submit"
+				ng-click="addBlog()">Submit</button>
+		</div>
+        </div>
+
+	</form>
+</div>

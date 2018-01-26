@@ -1,0 +1,23 @@
+
+
+<table class="table table striped">
+<thead>
+<tr>
+<th>Your Friends list</th><th></th><th></th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="friends in friendsList">
+ <td ><img src="http://localhost:9002/helloworld_backend/getimage/{{friends.fromId}}" 
+                     width="50px" height="50px" class="img-rounded" ng-hide="currentUser.username==friends.fromId">
+<img src="http://localhost:9002/helloworld_backend/getimage/{{friends.toId}}" 
+                     width="50px" height="50px" class="img-rounded" ng-hide="currentUser.username==friends.toId"></td>
+<td ng-hide="currentUser.username==friends.fromId">{{friends.fromId}}</td>
+<td ng-hide="currentUser.username==friends.toId">{{friends.toId}}</td>
+<td>
+<a href="#/getUserDetails/{{friends.fromId}}"class="btn btn-success" ng-hide="currentUser.username==friends.fromId">See profile</a>
+<a href="#/getUserDetails/{{friends.toId}}"class="btn btn-success" ng-hide="currentUser.username==friends.toId">See profile</a>
+</td>
+</tr>
+</tbody>
+</table>

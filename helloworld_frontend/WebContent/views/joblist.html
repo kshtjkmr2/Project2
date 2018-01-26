@@ -1,0 +1,66 @@
+
+<div>
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<label for="">Search By Title:</label>
+<input type="text" ng-model="searchText.jobTitle" class="form-control">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<label for="">Search By Skill Required:</label>
+<input type="text" ng-model="searchText.skillRequired" class="form-control">
+</div>
+</div>
+</div>
+<hr>
+<table>
+<tr>
+<th>Title</th>
+<th>Skill Required</th>
+<th>Posted On</th>
+</tr>
+<tr ng-repeat="job in jobs | filter:searchText">
+<td><a href="" ng-click="getJobDetails(job.id)" data-toggle="modal" data-target="#myModal">{{job.jobTitle}}</a></td>
+<td>{{job.skillRequired}}</td>
+<td>{{job.postedOn | date:dd-MM-YYYY}}</td>
+</tr>
+</table>
+</div>
+<div ng-show="showJobDetails">
+
+<div class="container" >
+ 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">    
+      <div class="modal-content">
+        <div class="modal-header" style=" background-color:#D1D1D1;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">User can apply Jobs by clicking apply</h4>
+        </div>
+        <div class="modal-body" style=" background-color:#D1D1D1;">
+        <div class="row">
+        <div class="col-sm-12">
+        <b>Job Title:</b>{{job.jobTitle}}<br>
+        <b>Job Description:</b>{{job.jobDescription}}<br> 
+        <b>Job Skill Required:</b>{{job.skillRequired}}<br>
+        <b>Job Experience:</b> {{job.yearOfExp}}<br>
+        <b>Job Salary:</b>{{job.salary}}<br>
+        <b>Company Name:</b>{{job.companyName}}<br>
+        <b>Job Location:</b>{{job.location}}
+        </div>
+        </div>        
+        </div>
+        <div class="modal-footer" style=" background-color:#D1D1D1">
+          <button type="button" class="btn btn-success" ng-show="currentUser.role=='STUDENT'">Apply for this job</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-show="currentUser.role=='ADMIN'">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</div>

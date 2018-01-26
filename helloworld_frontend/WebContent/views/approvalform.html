@@ -1,0 +1,21 @@
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div><strong>---------------------{{blogPost.blogTitle}}---------------------</strong></div>
+<span><strong>Posted By:</strong>{{blogPost.postedBy.username}}</span>
+<span><strong>Posted On:</strong>{{blogPost.postedOn | date:dd-MM-YYYY}}</span>
+</div>
+<div class="panel-body">
+{{blogPost.description}}
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<form>
+<input type="radio" ng-model="blogPost.approved" value="true">Approve<br>
+<input type="radio" ng-model="blogPost.approved" value="false">Reject<br>
+<button class="btn btn-success" ng-click="updateBlogPost()">Update</button>
+</form>
+</div>

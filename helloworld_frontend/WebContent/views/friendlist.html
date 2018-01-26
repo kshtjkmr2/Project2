@@ -1,0 +1,25 @@
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Online</th>
+<th>Role</th>
+<th>Request</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in suggestedusers">
+<td><img src="http://localhost:9002/helloworld_backend/getimage/{{user.username}}" 
+                     width="50px" height="50px" class="img-rounded"></td>
+<td>{{user.firstname}}</td>
+<td>{{user.lastname}}</td>
+<td ng-if="user.online">Yes</td>
+<td ng-if="!user.online">No</td>
+<td>{{user.role}}</td>
+<td><a ng-click="friendRequest(user.username)" class="btn btn-success">Send Friend Request</a></td>
+</tr>
+
+</tbody>
+</table>
