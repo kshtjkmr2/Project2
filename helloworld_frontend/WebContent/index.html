@@ -10,171 +10,136 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/home.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
-<link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/footer-distributed-with-address-and-phones.css"
+	rel="stylesheet">
+<link rel='stylesheet'
+	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	type="text/javascript"></script>
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
 	rel="stylesheet" />
-	<script type="text/javascript" src="js/docstyle.js"></script>
+<script type="text/javascript" src="js/docstyle.js"></script>
 <meta charset="ISO-8859-1">
 
 </head>
 <body ng-app="app">
-	<!-- <header ng-hide="currentUser.firstname">
-		<nav class="navbar navbar-light" style="background-color: #800080;">
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+			<a
+				class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"
+				href="javascript:void(0);" onclick="openNav()"><i
+				class="fa fa-bars"></i></a> <a class="navbar-brand" href="#">Helloworld</a>
+			<div ng-show="currentUser.firstname">
+				<a href="#/home"
+					class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><i
+					class="fa fa-home"></i>Home</a> <a href="#/aboutus"
+					class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About
+					Us</a>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-button w3-padding-large" title="Jobs">Jobs</button>
+					<div class="w3-dropdown-content w3-card-4 w3-bar-block"
+						style="width: 300px">
 
-			<div class="container-fluid">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#collapse-example"
-					aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<div class="navbar-header">
-					<a class="navbar-brand" href="">Helloworld</a>
+						<a href="#/savejob" ng-show="currentUser.role=='ADMIN'"
+							class="w3-bar-item w3-button">Post new jobs</a> <a
+							href="#/getalljobs" class="w3-bar-item w3-button">View all
+							jobs</a>
+
+					</div>
 				</div>
-				<div class="collapse navbar-collapse" id="collapse-example">
-					<ul class="nav navbar-nav ">
-						<li><a href="#/home" ng-show="currentUser.firstname"><i class="fa fa-home"></i>Home</a></li>
-						<li><a href="#/aboutus" ng-show="currentUser.firstname">About
-								Us</a></li>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-button w3-padding-large" title="Blogs">Blogs</button>
+					<div class="w3-dropdown-content w3-card-4 w3-bar-block"
+						style="width: 300px">
+						<a href="#/getblogpost" class="w3-bar-item w3-button">Post
+							Blog</a> <a href="#/getallblogs" class="w3-bar-item w3-button">View
+							Blog</a>
 
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-					<li  ng-show="currentUser.firstname">
-					<img src="http://localhost:9002/helloworld_backend/getimage/{{currentUser.username}}" 
-                     width="40px" height="40px" class="img-rounded"></li>
-						<li><a href="" ng-show="currentUser.firstname">Welcome
-								{{currentUser.username}}</a></li>
-						<li><a href="" ng-click="logout()"
-							ng-show="currentUser.firstname">Logout</a></li>
-						<li><a href="#/register" ng-hide="currentUser.firstname">Register</a></li>
-						<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li>
-					</ul>
-
+					</div>
 				</div>
+
+				<a href="#/getalljobs"
+					class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+					title="News"><i class="fa fa-globe"></i></a> <a
+					href="#/suggestedfriend"
+					class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+					title="Suggested friends"><i class="fa fa-user"></i></a> <a
+					href="#"
+					class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+					title="Messages"><i class="fa fa-envelope"></i></a>
+
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-button w3-padding-large" title="Notifications">
+						<i class="fa fa-bell"></i><span
+							class="w3-badge w3-right w3-small w3-green">0</span>
+					</button>
+					<div class="w3-dropdown-content w3-card-4 w3-bar-block"
+						style="width: 300px">
+						<a href="#/getallblogs" class="w3-bar-item w3-button">{{blogPostsWaitingForApprovel.length}}
+							blogs waiting for approvel</a>
+
+					</div>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/editprofile" ng-show="currentUser.firstname"
+						class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white"
+						title="My Account"> <img
+							src="http://localhost:9002/helloworld_backend/getimage/{{currentUser.username}}"
+							width="40px" height="40px" class="img-rounded"></a>
+					<li>
+					<li><a href="" ng-show="currentUser.firstname">Welcome
+							{{currentUser.username}}</a></li>
+					<li><a href="" ng-click="logout()"
+						ng-show="currentUser.firstname">Logout</a></li>
+					</ul>
 
 			</div>
-		</nav>
-	</header> -->
-	<!-- Navbar -->
-	<div class="w3-top" >
- <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a class="navbar-brand" href="#">Helloworld</a>
-  <div ng-show="currentUser.firstname">
-  <a href="#/home" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><i class="fa fa-home"></i>Home</a>
-  <a href="#/aboutus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
-  		<div class="w3-dropdown-hover w3-hide-small" >
-    <button class="w3-button w3-padding-large" title="Jobs">Jobs</button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-    
-      <a href="#/savejob" ng-show="currentUser.role=='ADMIN'" class="w3-bar-item w3-button">Post new jobs</a>
-      <a href="#/getalljobs" class="w3-bar-item w3-button">View all jobs</a>
-     
-    </div>
-  </div>
-  <div class="w3-dropdown-hover w3-hide-small" >
-    <button class="w3-button w3-padding-large" title="Blogs">Blogs</button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#/getblogpost" class="w3-bar-item w3-button">Post Blog</a> 
-	  <a href="#/getallblogs" class="w3-bar-item w3-button">View Blog</a>
-     
-    </div>
-  </div>
-  					
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
-  <a href="#/suggestedfriend" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Suggested friends"><i class="fa fa-user"></i></a>  
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
-   
-  <div class="w3-dropdown-hover w3-hide-small" >
-    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">0</span></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#/getallblogs" class="w3-bar-item w3-button">{{blogPostsWaitingForApprovel.length}} blogs waiting for approvel</a>
-      
-    </div>
-  </div>
- 
- <ul class="nav navbar-nav navbar-right">
- 					<li> <a href="#/editprofile" ng-show="currentUser.firstname" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
-                      <img src="http://localhost:9002/helloworld_backend/getimage/{{currentUser.username}}" 
-                     width="40px" height="40px" class="img-rounded"></a><li>
-						<li><a href="" ng-show="currentUser.firstname">Welcome
-								{{currentUser.username}}</a></li>
-						<li><a href="" ng-click="logout()"
-							ng-show="currentUser.firstname">Logout</a></li>
-						<!-- <li><a href="#/register" ng-hide="currentUser.firstname">Register</a></li>
-						<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li> -->
-					</ul>
- 
-</div>
-<ul class="nav navbar-nav navbar-right">
- 					
-						<li><a href="#/register" ng-hide="currentUser.firstname">Register</a></li>
-						<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li>
-					</ul>
-					</div>
- 
-</div>
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
-</div>
+			<ul class="nav navbar-nav navbar-right">
+
+				<li><a href="#/register" ng-hide="currentUser.firstname">Register</a></li>
+				<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- Navbar on small screens -->
+	<div id="navDemo"
+		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
+			Profile</a>
+	</div>
 
 	<div class="container">
 		<div class="row">
-			<!-- <div class="col-sm-3" ng-show="currentUser.firstname">
-
-				<div class="vertical-menu">
-					<a href="#/home" class="active">Home</a> 
-					<a href="#/editprofile">UpdateProfile</a>
-					<a href="#/savejob" ng-show="currentUser.role=='ADMIN'">Post new jobs</a>
-						 
-						<a href="#/getalljobs">View all jobs</a> 
-						<a href="#/getblogpost">Post Blog</a> 
-						<a href="#/getallblogs">View Blog</a>
-                    <a href="#/friendlist"> friends</a>
-                    <a href="#/suggestedfriend">Find friend</a>  
-                    <a href="#/pendingrequest">Pending Request</a> 
-                    <a href="">Private chat</a> 
-                    <a href="">Group chat</a>
-       
-				</div>
-			</div> -->
-            
 			<div class="col-sm-12">
-			<!-- <img src="resources/maxresdefault.jpg" width="1170px" height="400px" ng-hide="currentUser.firstname"/> -->
+
 				<div id="main" ng-view></div>
 			</div>
 		</div>
 
 	</div>
+	<!-- ============================================================================================================ -->
 	<div class="footer">
-	<footer class="footer-distributed">
+		<footer class="footer-distributed">
 
 			<div class="footer-left">
 
-				<h3>hello<span>world</span></h3>
+				<h3>
+					hello<span>world</span>
+				</h3>
 
 				<p class="footer-links">
-					<a href="#">Home</a>
-					·
-					<a href="#">Blog</a>
-	
-					·
-					<a href="#">About</a>
-					·
-					<a href="#">Faq</a>
-					·
-					<a href="#">Contact</a>
+					<a href="#">Home</a> · <a href="#">Blog</a> · <a href="#">About</a>
+					· <a href="#">Faq</a> · <a href="#">Contact</a>
 				</p>
 
 				<p class="footer-company-name">helloworld &copy; 2017</p>
@@ -184,7 +149,9 @@
 
 				<div>
 					<i class="fa fa-map-marker"></i>
-					<p><span>14 Old DLF </span> Gurugram, India</p>
+					<p>
+						<span>14 Old DLF </span> Gurugram, India
+					</p>
 				</div>
 
 				<div>
@@ -194,31 +161,33 @@
 
 				<div>
 					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@helloworld.com</a></p>
+					<p>
+						<a href="mailto:support@company.com">support@helloworld.com</a>
+					</p>
 				</div>
 
 			</div>
 
-0			<div class="footer-right">
+			0
+			<div class="footer-right">
 
 				<p class="footer-company-about">
-					<span>About the company</span>
-					.
+					<span>About the company</span> .
 				</p>
 
 				<div class="footer-icons">
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-github"></i></a>
+					<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+						class="fa fa-twitter"></i></a> <a href="#"><i
+						class="fa fa-linkedin"></i></a> <a href="#"><i
+						class="fa fa-github"></i></a>
 
 				</div>
 
 			</div>
 
 		</footer>
-		</div>
+	</div>
 </body>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
@@ -236,6 +205,7 @@
 <script type="text/javascript" src="controller/blogdetailscontroller.js"></script>
 <script type="text/javascript" src="controller/friendcontroller.js"></script>
 <script type="text/javascript" src="services/friendservice.js"></script>
-<script type="text/javascript" src="controller/frienddetailcontroller.js"></script>
+<script type="text/javascript"
+	src="controller/frienddetailcontroller.js"></script>
 
 </html>
